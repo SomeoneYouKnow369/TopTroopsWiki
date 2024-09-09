@@ -28,12 +28,13 @@
 	  }
 	  .divpd {
     margin-top: 10px;
-    max-width: 443px;
+    max-width: 467px;
     display: flex;
     justify-content: space-between;
     width: 100%;
+    align-items: center;
 }
-	  .sqbtn {
+.sqbtn {
     background: #8BC34A;
     color: #fff;
     border-color: #8BC34A;
@@ -67,6 +68,19 @@ background:red;
 }
 .selection{
 margin-top:10px;
+}
+.iconsq{
+max-height: 35px;
+margin-right: 15px;
+}
+label {
+    margin-bottom: 0px;
+    margin-right: 10px;
+}
+#selections{
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
 }
 
 @media (max-width: 670px) {
@@ -123,7 +137,7 @@ button, input, select, textarea {
     
     <!-- Dropdowns to select rank and buttons to add selections -->
     <div class="divpd">
-        <label for="trainerRank">Trainer Rank:</label>
+        <label for="trainerRank"><img class="iconsq" src="images/trainer.png" alt=""/> Trainer Rank:</label>
         <select id="trainerRank">
             <option value="" disabled selected>Select Rank</option>
 			<option value="4">Rank 4</option>
@@ -134,7 +148,7 @@ button, input, select, textarea {
         <button class="sqbtn" onclick="addSelection('Trainer')">Add Trainer</button>
     </div>
 	<div class="divpd">
-        <label for="rareRank">Rare Rank:</label>
+        <label for="rareRank"><img class="iconsq" src="images/rare.png" alt=""/> Rare Rank:</label>
         <select id="rareRank">
             <option value="" disabled selected>Select Rank</option>
 			<option value="4">Rank 4</option>
@@ -144,7 +158,7 @@ button, input, select, textarea {
         <button class="sqbtn" onclick="addSelection('Rare')">Add Rare</button>
     </div>
     <div class="divpd">
-        <label for="commonRank">Common Rank:</label>
+        <label for="commonRank"><img class="iconsq" src="images/common.png" alt=""/> Common Rank:</label>
         <select id="commonRank">
             <option value="" disabled selected>Select Rank</option>
 			<option value="4">Rank 4</option>
