@@ -73,7 +73,7 @@ function addSelection(type) {
 	
 	const selectionText = document.createElement('span');
 	let sameFactionBonus = selectedConversion.XPConversion * 1.2;
-	selectionText.innerHTML = `<img class="iconsq" src="images/${type}.png"> ${type} Rank ${selectedRank}: XP = ${selectedConversion.XPConversion}, Faction Bonus XP = ${sameFactionBonus}`;
+	selectionText.innerHTML = `<img class="iconsq" src="images/${type.toLowerCase()}.png"> ${type} Rank ${selectedRank}: XP = ${selectedConversion.XPConversion}, Faction Bonus XP = ${sameFactionBonus}`;
 
 	// Input for Same Faction Quantity
 	const sameFactionInput = document.createElement('input');
