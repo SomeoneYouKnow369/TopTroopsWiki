@@ -659,10 +659,12 @@ width: 100%;
     padding: 3px 10px 3px 10px;
     display: inline-block;
     height: auto;
+    width: 10%;
 }
 .list:not(.active) .unme {
     color: #fff!important;
     text-align: center;
+        font-size: 13px;
 }
 .list:not(.active) .rfact {
     position: initial;
