@@ -79,14 +79,20 @@ document.addEventListener('DOMContentLoaded', function() {
 // Search--------------------------------------
 document.getElementById('search-input').addEventListener('keyup', function() {
     var searchTerm = this.value.toLowerCase();
-    var articles = document.querySelectorAll('.news-item');
+    var articles = document.querySelectorAll('.news-item');    
+    var sectitle = document.querySelectorAll('.sectitle');
+    
+    
+            $('.sectitle').css({"display": ""});
 
     articles.forEach(function(article) {
         var articleText = article.innerText.toLowerCase();
         if (articleText.includes(searchTerm)) {
             article.style.display = '';
+            
         } else {
-            article.style.display = 'none';
+            article.style.display = 'none';            
+            $('.sectitle').css({"display": "none"});
         }
     });
 });
@@ -101,6 +107,10 @@ $('#search-input').on('input', function() {
     $('select#sort-city').val(".");
   }
   
+//=====rightclick-----------------------  
+$(document).contextmenu(function() {
+    return false;
+});  
 
 
 
