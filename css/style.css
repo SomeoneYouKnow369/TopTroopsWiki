@@ -719,12 +719,12 @@ width: 100%;
     display: inline-block;
 }
 .list:not(.active) .dttbl {
-    background: rgb(255, 255, 255, 0.22);
+    background: rgb(0, 0, 0, 0.22);
     color: #fff;
     border-top: 1px solid!important;
 }
 .list:not(.active) .dttbl td{
-padding: 0px 2px;
+padding: 0px 5px;
 }
 
 
