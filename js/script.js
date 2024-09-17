@@ -171,11 +171,21 @@ $(document).ready(function() {
             tireDiv.text('D');
             tireDiv.css('background-color', '#ff752b');
         } 
+        else if (tierText === 'E+') {
+            $(this).attr('data-tire', 'E+');
+            tireDiv.text('E+');
+            tireDiv.css('background-color', '#e6233d');
+        } 
         else if (tierText === 'E') {
             $(this).attr('data-tire', 'E');
             tireDiv.text('E');
             tireDiv.css('background-color', '#e6233d');
         } 
+        else if (tierText === 'F+') {
+            $(this).attr('data-tire', 'F+');
+            tireDiv.text('F+');
+            tireDiv.css('background-color', '#8c1425');
+        }
         else if (tierText === 'F') {
             $(this).attr('data-tire', 'F');
             tireDiv.text('F');
