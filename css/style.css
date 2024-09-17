@@ -10,6 +10,7 @@ font-family: "Poppins", sans-serif;
   position: relative;
   color: #fff;
       background-attachment: fixed;
+      background-position-y: top;
 
 }
 .footer{
@@ -48,6 +49,7 @@ button, input, select, textarea {
     padding: 3px 10px;
     border: 1px solid #fff;
     background: transparent;
+    color: #fff;
 }
 select option{
     background-color: #3E007E;
@@ -61,6 +63,28 @@ select option{
     left: 0;
     opacity: .8;
     z-index: -1;
+    
+}
+.modal-header {
+    background: url("../imageog.jpg");
+    height: 120px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.modal-dialog {
+    max-width: 490px;
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - 3rem* 2);
+    transform: none;
+    color: #000;
+}
+.modal-header .close {
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    opacity: 1;
+    font-weight: 500;
 }
 .logo {
     display: flex;
