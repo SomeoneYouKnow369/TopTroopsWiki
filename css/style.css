@@ -456,16 +456,16 @@ margin-left: 4px;
 #sidebar ul {
     position: absolute;
     transform: translate(-50%, 0%);
-    top: 19%;
-    left: 41%;
+    top: 16%;
+    left: 47%;
     list-style: none;
     height: 81vh;
     overflow-y: auto;
-    scrollbar-color: #212121 #dcdcdc;
+    scrollbar-color: #4CAF50 #ffffff;
     scrollbar-width: thin;
-    width: 80%;
-    padding-left: 22%;
-	    padding-bottom: 25px;
+    width: 84%;
+    padding-left: 18%;
+    padding-bottom: 25px;
 }
 
 #sidebar ul::-webkit-scrollbar-track
@@ -931,6 +931,12 @@ h1 {
 .gridlistcon {
     margin-left: 0px;
     margin-top: 10px;
+}
+#sidebar ul {
+    padding-left: 24%;
+}
+.h2, h2 {
+    font-size: 21px;
 }
 	
 }
