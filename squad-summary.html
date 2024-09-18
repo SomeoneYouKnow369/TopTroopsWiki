@@ -35,6 +35,73 @@ h3{
 text-transform: uppercase;
 font-weight: 600;
 }
+.sqitem {
+    width: 14%;
+    margin: 13px;
+    vertical-align: top;
+    display: inline-block;
+    cursor: pointer;
+}
+.sqitem:hover {
+   transform: scale(1.05);
+}
+.sqitem.active:hover{
+   transform: scale(1);
+}
+.sqitem.active{
+    width: 97%;
+    display: flex;
+    cursor:default;
+}
+.sqitem.active .sqitemthumb {
+    width: 20%;
+}
+.sqitem.active .sqitemdetails {
+     display: inline-block;
+}
+.sqitemdetails {
+    display: none;
+}
+.sqitemthumb {
+    width: 100%;
+}
+.sqitemthumb h3 {
+    font-size: 13px;
+    min-height: 30px;
+}
+@media (max-width: 1000px) {
+.sqitem {
+    width: 21%;
+}
+
+}
+@media (max-width: 660px) {
+.sqitem {
+    width: 29%;
+    margin: 8px 6px;
+}
+.sqitemthumb img {
+    width: 100%;
+}
+.sqitemthumb {
+    padding: 9px;
+}
+.sqitem.active .sqitemthumb {
+    width: 100%;
+}
+.sqitem.active .sqitemthumb img{
+    width: 40%;
+}
+
+}
+
+@media (max-width: 350px) {
+.sqitem {
+    width: 42%;
+    margin: 8px 6px;
+}
+
+}
 </style>
 </head>
 
@@ -69,16 +136,44 @@ font-weight: 600;
 
 <section class="news-list">
 
-	<article class="sqitem">
+
+    <article class="sqitem">
         <div class="sqovelay"></div>
-        <div class="sqitemthumb"><img src="images/units/Storm.png" alt=""><h3>STORM</h3>
+        <div class="sqitemthumb"><img src="images/units/Dakini.png" alt=""><h3>Dakini</h3>
         </div>
         <div class="sqitemdetails">
-        <strong>Summary:</strong><br>Strong Mage unit capable of damaging and potentially killing multiple enemies across the map with stuns and large damage from her bouncing attacks and Main skill. Works best with other Electrocute units as her own Electrocute is less reliable. <strong><br><br>Pros:</strong><ul><li>Attacks that bounce between up to 7 targets lets her hit enemies in the front and backlines simultaneously.</li><li>High attack speed lets her get in multiple hits and chances for Electrocute and stun on enemies.</li><li>Big damage on Main Skill that can hit enemies anywhere on the map as long as they're Electrocuted.</li></ul><strong>Cons:</strong><ul><li>Her own Electrocute is RNG dependent, so she's reliant on other Electocute units to apply it more consistently for her (investment needed).</li></ul><strong>Pairs well with:</strong><ul><li><strong>Electrocute:</strong>Thor, Hermes, Thundershot, etc. can apply Electrocute to different parts of the map, making her less dependent on applying her own Electrocute and allowing her to hit more enemies with her main skill.</li></ul><strong>Does poorly against:</strong><ul><li><strong>Stun Immunity:</strong>While units immune to Stun can still be Electrocuted, this can still hamper her utility.</li><li><strong>Multi-population:</strong>Multi-population units can eat the bounce on her attacks, making it more difficult to hit other priority targets.</li><li><strong>Assassins: </strong>Can remove her before she causes much trouble.</li></ul>
+        <strong>Summary:</strong><br>A melee unit with 6 members and a focus on damaging and stunning enemies, making them frail and ineffective to stun immunity. They're primarily an alternative to Goblins to sacrifice and power up El Bandolero when a slightly sturdier option with some utility is appreciated, but as a result, should not be heavily invested in and likely won't make the cut for Wishlist. <br><br><strong>Pros:</strong><ul><li>6 member population and Hunter Faction can make them a neat side-grade of Goblins as a sacrificial unit to power up El Bandolero.</li><li>Permanent Attack Speed and Movement Speed debuff after stunning an enemy can cripple Melee units.</li></ul><strong>Cons:</strong><ul><li>Won't die immediately like Goblins due to higher HP, which is usually a bigger need to get El Bandolero's boost as soon as possible for modes such as Adventure.</li><li>Skills are built around stunning, making them weak against any kind of stun immunity.</li><li>Lower population count than Goblins' 8 members makes them difficult to justify without some investment to properly differentiate them.</li></ul><strong>Pairs well with:</strong><ul><li><strong>El Bandolero:</strong>If you need an option over Goblin to delay El Bandolero's invincibility and attack speed boost.</li></ul><strong>Does poorly against:</strong><ul><li><strong>Stun Immunity: </strong>Spirited Tiger protects all allies in an area and Armored Troll naturally has stun protection. When Dakini can't stun, their potential is severely hurt.</li><li><strong>Area of Effect Damage:</strong>Units like Werewolf and Swashbuckler that can hit multiple units with high damaging attacks can quickly kill off Dakini before they get a chance to cause much damage, at which point, you may as well have run Goblins.</li></ul>
     </div>
     </article>
     
+
+	<article class="sqitem">
+        <div class="sqovelay"></div>
+        <div class="sqitemthumb"><img src="images/units/Eira.png" alt=""><h3>Eira</h3>
+        </div>
+        <div class="sqitemdetails">
+        <strong>Gear Priority:</strong><br>Cooldown (P), Cooldown, Attack - 50% Cooldown lets Eira capitalize on her Freeze duration, with any bonus damage you can get a nice bonus to inflict damage faster. <br><br><strong>Pros:</strong><br>Access to the rare Freeze status, can keep it up nearly 100% of the time to keep units locked down. and no meta-relevant unit is immune to Freeze. Multi-population unit means Freeze has a deceptively bigger radius and can potentially desync to permanently Freeze a target.<br><br><strong>Cons:</strong><br>Lacks in Ancient Boss Battles, as they're all immune to freeze and she's fragile. Investment: High - Needs 50% Cooldown in gear, Maxed Freeze duration and radius, etc. to truly shine. Synergies: Toad Druid can keep a unit stunned long enough for Eira to take over afterwards with her freeze. <br><br><strong>Counters/Checks:</strong><br>Elemental Witch can entangle Eira before she gets close and slows her to a crawl. Melee units on top of her path can distract her and can kill her before she gets a freeze off.
+    </div>
+    </article>
     
+
+	<article class="sqitem">
+        <div class="sqovelay"></div>
+        <div class="sqitemthumb"><img src="images/units/El Bandolero.png" alt=""><h3>El Bandolero</h3>
+        </div>
+        <div class="sqitemdetails">
+        <strong>Gear Priority:</strong><br>Attack (P), Attack - Needs as much base damage as possible for Main Skill to scale up higher.<br><br><strong>Pros:</strong><br>Highest single target DPS potential for a Melee unit when enough allied units have died. Invincibility to damage and status effects for 8s from Last Man Standing gives him a long duration to deal damage uninterrupted. Effective in most game modes, able to deal big damage to Ancients and push against stronger armies in other modes.<br><br><strong>Cons:</strong><br>Can be difficult to fit into Arena team at higher ranks due to defenses having two extra units and lack of many strong multi-population units to use. Sluggish and low damage prior to Last Man Standing buff activating. Single target DPS makes him vulnerable to being help up by the frontline and damaged by threatening Ranged and Mage units in the backrow. Necessitates running weaker units such as Goblins and Dakini to maximize his effectiveness.<br><br><strong>Investment:</strong><br>Low - Should rank up a few times for Bonus Damage on Main Skill to scale faster and get more invincibility time. Goblins are low investment as a partner but other multi-population units may provide a higher ceiling. 
+    </div>
+    </article>
+
+	<article class="sqitem">
+        <div class="sqovelay"></div>
+        <div class="sqitemthumb"><img src="images/units/Elemental Witch.png" alt=""><h3>Elemental Witch</h3>
+        </div>
+        <div class="sqitemdetails">
+        <strong>Gear Priority:</strong><br>Attack Speed (P), Attack Speed - Elemental Witch would like to attack as quickly as possible to maintain uptime on her AoE stun and knockback. Her high base damage allows her to forego extra damage.<br><br><strong>Pros:</strong><br>Applies Knockback and Entangle, two status effects currently unresisted by all units. This allows her to interrupt abilities such as Spirited Tiger's self heal despite his stun immunity.High entangle chance makes her less susceptible to Melee and Assassins than other Mages and she's even capable of Entangling invisible units.Large aura that reduces Attack Speed and Movement Speed considerably, severely limiting the enemy front row's capabilities.<br><br><strong>Cons:</strong><br>Her skills are less effective on Ranged and Mage units as they tend to be spread out and outside range of her skills.Weak contributor in Ancient boss battles due their status immunities.<br><br><strong>Investment:</strong><br>Medium - She would like a good set of Attack Speed gear to get her attack speed as fast as possible, and she'd like levels in many of her skills so that they have larger reach and higher chances of Entangling. On the other hand, she has little competition for Attack Speed gear, lower the opportunity cost.
+    </div>
+    </article>    
 
 	<article class="sqitem">
         <div class="sqovelay"></div>
@@ -89,14 +184,23 @@ font-weight: 600;
     </div>
     </article>
     
-    
 
 	<article class="sqitem">
         <div class="sqovelay"></div>
-        <div class="sqitemthumb"><img src="images/units/Dakini.png" alt=""><h3>Dakini</h3>
+        <div class="sqitemthumb"><img src="images/units/Storm.png" alt=""><h3>STORM</h3>
         </div>
         <div class="sqitemdetails">
-        <strong>Summary:</strong><br>A melee unit with 6 members and a focus on damaging and stunning enemies, making them frail and ineffective to stun immunity. They're primarily an alternative to Goblins to sacrifice and power up El Bandolero when a slightly sturdier option with some utility is appreciated, but as a result, should not be heavily invested in and likely won't make the cut for Wishlist. <br><br><strong>Pros:</strong><ul><li>6 member population and Hunter Faction can make them a neat side-grade of Goblins as a sacrificial unit to power up El Bandolero.</li><li>Permanent Attack Speed and Movement Speed debuff after stunning an enemy can cripple Melee units.</li></ul><strong>Cons:</strong><ul><li>Won't die immediately like Goblins due to higher HP, which is usually a bigger need to get El Bandolero's boost as soon as possible for modes such as Adventure.</li><li>Skills are built around stunning, making them weak against any kind of stun immunity.</li><li>Lower population count than Goblins' 8 members makes them difficult to justify without some investment to properly differentiate them.</li></ul><strong>Pairs well with:</strong><ul><li><strong>El Bandolero:</strong>If you need an option over Goblin to delay El Bandolero's invincibility and attack speed boost.</li></ul><strong>Does poorly against:</strong><ul><li><strong>Stun Immunity: </strong>Spirited Tiger protects all allies in an area and Armored Troll naturally has stun protection. When Dakini can't stun, their potential is severely hurt.</li><li><strong>Area of Effect Damage:</strong>Units like Werewolf and Swashbuckler that can hit multiple units with high damaging attacks can quickly kill off Dakini before they get a chance to cause much damage, at which point, you may as well have run Goblins.</li></ul>
+        <strong>Summary:</strong><br>Strong Mage unit capable of damaging and potentially killing multiple enemies across the map with stuns and large damage from her bouncing attacks and Main skill. Works best with other Electrocute units as her own Electrocute is less reliable. <strong><br><br>Pros:</strong><ul><li>Attacks that bounce between up to 7 targets lets her hit enemies in the front and backlines simultaneously.</li><li>High attack speed lets her get in multiple hits and chances for Electrocute and stun on enemies.</li><li>Big damage on Main Skill that can hit enemies anywhere on the map as long as they're Electrocuted.</li></ul><strong>Cons:</strong><ul><li>Her own Electrocute is RNG dependent, so she's reliant on other Electocute units to apply it more consistently for her (investment needed).</li></ul><strong>Pairs well with:</strong><ul><li><strong>Electrocute:</strong>Thor, Hermes, Thundershot, etc. can apply Electrocute to different parts of the map, making her less dependent on applying her own Electrocute and allowing her to hit more enemies with her main skill.</li></ul><strong>Does poorly against:</strong><ul><li><strong>Stun Immunity:</strong>While units immune to Stun can still be Electrocuted, this can still hamper her utility.</li><li><strong>Multi-population:</strong>Multi-population units can eat the bounce on her attacks, making it more difficult to hit other priority targets.</li><li><strong>Assassins: </strong>Can remove her before she causes much trouble.</li></ul>
+    </div>
+    </article>
+    	
+
+	<article class="sqitem">
+        <div class="sqovelay"></div>
+        <div class="sqitemthumb"><img src="images/units/Sylvan Spirit.png" alt=""><h3>Sylvan Spirit</h3>
+        </div>
+        <div class="sqitemdetails">
+        <strong>Gear Priority:</strong><br>Cooldown (P), Cooldown (S), HP - Higher cooldown gives your Main Skill 100% uptime, which is really important since Sylvan isn't doing much if its skill isn't being applied. Extra HP secondaries can be good for tanking extra hits in Ancient but is not a priority.<br><br><strong>Pros:</strong><br>Has the largest raw Defense drop of all units, able to stack with another Sylvan Spirit and is unresisted by everything, including Ancients. It drastically boosts the damage potential of the rest of your army. 2 Sylvan Spirits can drop units to 0% Movement Speed, effectively locking them in place. Only source of removal and prevention for the powerful Rage buff, further reducing potential enemy damage if they have units like Battle Drummer on their team.<br><br><strong>Cons:</strong><br>Targets the unit with the highest Attack, which can make it easy to exploit and counter in non-Ancient modes.Is quite passive on its own so the rest of the army needs to make up for its own lack of damage.<br><br><strong>Investment:</strong><br>Low - A new copy of Sylvan is great right out of the gate and it only gets better with extra skill levels and Cooldown gear. Since it's got a strong skill that isn't dependent on its damage or tanking stats, it's not as dependent on rank or unit level for its effectiveness.
     </div>
     </article>
 
@@ -161,6 +265,23 @@ document.getElementById('search-input').addEventListener('keyup', function() {
         }
     });
 });
+
+
+//--------activeitem-------------------
+  const items = document.querySelectorAll('.sqitem');
+
+  // Add click event listener to each item
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove 'active' class from all items
+      items.forEach(i => i.classList.remove('active'));
+
+      // Add 'active' class to the clicked item
+      item.classList.add('active');
+      item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    });
+  });
 
 
 // Gototop-------------------------------------- 
