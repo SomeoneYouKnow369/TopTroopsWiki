@@ -461,7 +461,7 @@ margin-left: 4px;
     list-style: none;
     height: 81vh;
     overflow-y: auto;
-    scrollbar-color: #4CAF50 #ffffff;
+    scrollbar-color: #00405f #ffffff;
     scrollbar-width: thin;
     width: 84%;
     padding-left: 18%;
@@ -483,8 +483,8 @@ margin-left: 4px;
 
 #sidebar ul::-webkit-scrollbar-thumb
 {
-	background-color: #78A53F;
-	border: 1px solid #78A53F!important;
+	background-color: #00405f;
+	border: 1px solid #00405f!important;
     border-radius: 0px!important;
 }
 
@@ -607,7 +607,7 @@ margin-left: 15px;
 .sqitem {
     border-radius: 18px;
     display: flex;
-    justify-content: space-between;
+        justify-content: center;
     align-items: stretch;
     overflow: hidden;
     background: linear-gradient(352deg, rgb(0, 0, 0, 0.51), transparent);
