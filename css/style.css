@@ -771,6 +771,7 @@ padding: 0px 5px;
     width: 14%;
 }
 body{
+background-position-y: top;
 background-position-x: right;
 }
 .news-item.active {
