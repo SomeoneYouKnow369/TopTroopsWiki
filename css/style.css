@@ -770,10 +770,10 @@ padding: 0px 5px;
 .news-item {
     width: 14%;
 }
-body{
-background-position-y: top;
-background-position-x: right;
-background-size: auto 100vh;
+body {
+    background-position-y: top;
+    background-position-x: 71%;
+    background-size: auto 100vh;
 }
 .news-item.active {
     width: 58%;
