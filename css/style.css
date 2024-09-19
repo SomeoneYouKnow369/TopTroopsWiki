@@ -774,6 +774,7 @@ body {
     background-position-y: top;
     background-position-x: 64%;
     background-size: auto 100vh;
+    background-attachment: fixed;
 }
 .news-item.active {
     width: 58%;
