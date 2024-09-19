@@ -773,6 +773,7 @@ padding: 0px 5px;
 body{
 background-position-y: top;
 background-position-x: right;
+background-size: auto 100vh;
 }
 .news-item.active {
     width: 58%;
