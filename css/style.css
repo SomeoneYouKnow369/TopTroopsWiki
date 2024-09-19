@@ -770,6 +770,9 @@ padding: 0px 5px;
 .news-item {
     width: 14%;
 }
+body{
+background-position-x: right;
+}
 .news-item.active {
     width: 58%;
 }
