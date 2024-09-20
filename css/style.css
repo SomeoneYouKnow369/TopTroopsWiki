@@ -867,8 +867,12 @@ h1 {
 }
 .dropbtn {
     font-size: 14px;
+    padding: 5px 20px;
 }
-
+button, input, select, textarea {
+    border-radius: 12px;
+    padding: 5px 10px;
+}
 .list:not(.active) .thumb {
     width: 14%;
     display: inline-block;
