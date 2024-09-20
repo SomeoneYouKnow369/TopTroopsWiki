@@ -217,7 +217,7 @@ button, input, select, textarea {
    
    </div>
    
-<div class="sqcalcon" style="display: block; margin-top: 20px;">
+<div id="tblc" class="sqcalcon" style="display: block; margin-top: 20px;">
 <div class=""><h3>Comparison Table:</h3>
 <button class="sqbtn" onclick="clearComparison()">Clear</button>
   <div id="comparison-table">
@@ -944,6 +944,7 @@ function calculateStats() {
 
 function addToComparison() {
     const tableBody = document.querySelector("#comparison-table .txbody");
+    
    
 
     const calculatedStats = calculateStats();
@@ -962,6 +963,7 @@ function addToComparison() {
         `;
         
         tableBody.appendChild(newRow);
+        $('html, body').delay('100').animate({scrollTop: $("#tblc").offset().top  - 20  }, "slow");
     } else {
         console.error("Invalid stats, cannot add to comparison.");
     }
