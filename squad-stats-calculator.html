@@ -83,6 +83,40 @@ width: 50%;
 .sqimg{
 max-width: 173px;
 }
+#comparison-table {
+    display: flex;
+    margin-top: 10px;
+        width: 100%;
+    overflow-x: auto;
+}
+.txbody{
+display: flex;
+}
+.thcom {
+    font-weight: 700;
+}
+.thcom div{
+    border: 1px solid #fff;
+    padding: 5px 3px;
+    display: flex;
+    align-items: center;
+     min-height: 51px;
+}
+.thdata div{
+    border: 1px solid #fff;
+    padding: 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     min-height: 51px;
+}
+.thdata {
+    text-align: center;
+}
+.compunit{
+padding: 0px 10px;
+}
+
 
 @media (max-width: 1100px) {
 .sqcalcon {
@@ -96,6 +130,15 @@ max-width: 173px;
 }
 
 @media (max-width: 670px) {
+.thdata div {
+    min-height: 71px;
+}
+.thcom div {
+    min-height: 71px;
+}
+.compunit {
+    width: 120px;
+}
 #result {
     flex-direction: column;
 }
@@ -167,11 +210,33 @@ button, input, select, textarea {
   <input type="number" id="level-input" min="1" max="300" value="1"><br>
 
 
-  <button class="sqbtn" onclick="calculateStats()">Calculate</button>
+  <button class="sqbtn" onclick="calculateStats()">Calculate</button>  
+  <button class="sqbtn" onclick="addToComparison()">Compare</button>
 </div>
    
    
    </div>
+   
+<div class="sqcalcon" style="display: block; margin-top: 20px;">
+<div class=""><h3>Comparison Table:</h3>
+<button class="sqbtn" onclick="clearComparison()">Clear</button>
+  <div id="comparison-table">
+    <div class="thcom">
+        <div>Unit Name</div>
+        <div>Rank</div>
+        <div>Level</div>
+        <div>Attack</div>
+        <div>HP</div>
+        <div>Attack Speed</div>
+    </div>
+    <div class="txbody">
+    
+    </div>
+    
+  </div></div>
+
+</div>   
+   
 	</div>
                    
                    
@@ -864,9 +929,46 @@ function calculateStats() {
             <p><img class="iconsq" src="images/health.png" alt=""/> HP: ${hp.toFixed(0)}</p>
             <p><img class="iconsq" src="images/attack-speed.png" alt=""/> Attack Speed: ${speed}</p></div>
         `;
-    } else {
+        return { unitName, rank, level, atk, hp, speed };
+
+    } 
+    
+    else {
         document.getElementById('result').innerHTML = "<p>Please select valid inputs.</p>";
     }
+    
+    
+    
+    
+}
+
+function addToComparison() {
+    const tableBody = document.querySelector("#comparison-table .txbody");
+   
+
+    const calculatedStats = calculateStats();
+
+    // Check if stats are valid before adding to comparison
+    if (calculatedStats) {
+        const newRow = document.createElement('div');
+        
+        newRow.innerHTML = `
+            <div class="thdata"><div><spn class="compunit">${calculatedStats.unitName}</span></div>
+            <div>${calculatedStats.rank}</div>
+            <div>${calculatedStats.level}</div>
+            <div>${calculatedStats.atk.toFixed(0)}</div>
+            <div>${calculatedStats.hp.toFixed(0)}</div>
+            <div>${calculatedStats.speed}</div></div>
+        `;
+        
+        tableBody.appendChild(newRow);
+    } else {
+        console.error("Invalid stats, cannot add to comparison.");
+    }
+}
+function clearComparison() {
+    const tableBody = document.querySelector("#comparison-table .txbody");
+    tableBody.innerHTML = ""; // Clears all rows in the comparison table
 }
 
 
