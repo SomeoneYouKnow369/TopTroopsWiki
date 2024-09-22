@@ -121,7 +121,10 @@ display: flex;
 .compunit{
 padding: 0px 10px;
 }
-
+#passive-selection{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 @media (max-width: 1100px) {
 .sqcalcon {
@@ -209,16 +212,26 @@ button, input, select, textarea {
     <div class=""> 
     <h2>Select the Unit</h2>
   <label for="unit-select">Unit Name:</label>
-  <select id="unit-select"></select>
+  <select id="unit-select" onchange="updateDropdowns()"></select>
 <br>
     
   <label for="rank-select">Select Rank:</label>
-  <select id="rank-select">
+  <select id="rank-select" onchange="updateDropdowns()">
     <!-- Ranks 1 to 15 -->
   </select>
 
   <label for="level-input">Enter Level (1-300):</label>
-  <input type="number" id="level-input" min="1" max="300" value="1"><br>
+  <input type="number" id="level-input" min="1" max="300" value="1" ><br>
+  
+<!-- Passive Selection Dropdowns -->
+<label for="unit-skills">Skill Upgrade:</label>
+<div id="passive-selection">
+    <div id="atk-dropdown-container"></div>
+    <div id="hp-dropdown-container"></div>
+    <div id="atkspd-dropdown-container"></div>
+</div>
+<br>
+
 
 
   <button class="sqbtn" onclick="calculateStats()">Calculate</button>  
@@ -1094,6 +1107,87 @@ function calculateLevelMultiplier(level) {
     return (A * Math.pow(L, 2.99999)) + (B * Math.pow(L, 1.99999)) + (C * L) + 1;
 }
 
+
+function populatePassiveDropdowns(unit, rank) {
+    const atkContainer = document.getElementById('atk-dropdown-container');
+    const hpContainer = document.getElementById('hp-dropdown-container');
+    const atkspdContainer = document.getElementById('atkspd-dropdown-container');
+
+    atkContainer.innerHTML = '';
+    hpContainer.innerHTML = '';
+    atkspdContainer.innerHTML = '';
+
+     if (unit.Passive !== "N/A") {
+        // Determine max passive level based on rank
+        let maxpasLevel = 1; // Always include Level 1
+
+        if (rank >= 4) maxpasLevel = 2;
+        if (rank >= 5) maxpasLevel = 3;
+        if (rank >= 6) maxpasLevel = 4;
+        if (rank >= 7) maxpasLevel = 5;
+
+        // ATK Passive Dropdown
+        if (unit.Passive.ATK) {
+            const atkDropdown = document.createElement('select');
+            for (let i = 0; i < maxpasLevel; i++) {
+                const option = document.createElement('option');
+                option.value = unit.Passive.ATK[i];
+                option.textContent = `Level ${i + 1}: ${unit.Passive.ATK[i]}%`;
+                atkDropdown.appendChild(option);
+            }
+            atkContainer.innerHTML += '<div>Damage</div>';
+            atkContainer.appendChild(atkDropdown);
+        }
+
+        // HP Passive Dropdown
+        if (unit.Passive.HP) {
+            const hpDropdown = document.createElement('select');
+            for (let i = 0; i < maxpasLevel; i++) {
+                const option = document.createElement('option');
+                option.value = unit.Passive.HP[i];
+                option.textContent = `Level ${i + 1}: ${unit.Passive.HP[i]}%`;
+                hpDropdown.appendChild(option);
+            }
+            
+            hpContainer.innerHTML += '<div>HP</div>';
+            hpContainer.appendChild(hpDropdown);
+        }
+        
+        // ATKSPD Passive Dropdown
+        if (unit.Passive["ATK Speed"]) {
+            const atkspdDropdown = document.createElement('select');
+            for (let i = 0; i < maxpasLevel; i++) {
+                const option = document.createElement('option');
+                option.value = unit.Passive["ATK Speed"][i];
+                option.textContent = `Level ${i + 1}: ${unit.Passive["ATK Speed"][i]}%`;
+                atkspdDropdown.appendChild(option);
+            }
+            atkspdContainer.innerHTML += '<div>Attack Speed</div>';
+            atkspdContainer.appendChild(atkspdDropdown);
+        }
+    } else {
+        atkContainer.innerHTML = '';
+        hpContainer.innerHTML = '';
+        atkspdContainer.innerHTML = '';
+    }
+}
+function updateDropdowns() {
+    const unitName = document.getElementById('unit-select').value;
+    const rank = parseInt(document.getElementById('rank-select').value);
+    const unit = squadData.find(u => u.Name === unitName);
+
+    if (unit && rank) {
+        populatePassiveDropdowns(unit, rank);
+    } else {
+        // Clear the dropdowns if no valid unit or rank is selected
+        document.getElementById('atk-dropdown-container').innerHTML = '';
+        document.getElementById('hp-dropdown-container').innerHTML = '';
+        document.getElementById('atkspd-dropdown-container').innerHTML = '';
+    }
+}
+
+
+
 // Main function to calculate stats
 function calculateStats() {
     const unitName = document.getElementById('unit-select').value;
@@ -1114,16 +1208,28 @@ function calculateStats() {
         const hp = unit["Base HP"] * rankCoefficient * levelMultiplier;
         const speed = unit["Attack Speed"];
         
-        
+       // Get selected passive values
+    const atkDropdown = document.querySelector('#atk-dropdown-container select');
+    const hpDropdown = document.querySelector('#hp-dropdown-container select');
+    const atkspdDropdown = document.querySelector('#atkspd-dropdown-container select');
+
+    const selectedAtkPassive = atkDropdown ? parseInt(atkDropdown.value) : 0;
+    const selectedHpPassive = hpDropdown ? parseInt(hpDropdown.value) : 0;
+    const selectedatkspdPassive = atkspdDropdown ? parseInt(atkspdDropdown.value) : 0;
+
+    // Apply passives
+    const finalAtk = atk * (1 + selectedAtkPassive / 100);
+    const finalHp = hp * (1 + selectedHpPassive / 100);
+    const finalatkspd = speed * (1 + selectedatkspdPassive / 100);
 
         // Display results
         document.getElementById('result').innerHTML = `
              <img class="sqimg" src="images/units/${unitName}.png" alt=""/> 
-            <div class="statstxt"><p><img class="iconsq" src="images/attack.png" alt=""/> Attack: ${atk.toFixed(0)}</p>
-            <p><img class="iconsq" src="images/health.png" alt=""/> HP: ${hp.toFixed(0)}</p>
-            <p><img class="iconsq" src="images/attack-speed.png" alt=""/> Attack Speed: ${speed}</p></div>
+            <div class="statstxt"><p><img class="iconsq" src="images/attack.png" alt=""/> Attack: ${finalAtk.toFixed(0)}</p>
+            <p><img class="iconsq" src="images/health.png" alt=""/> HP: ${finalHp.toFixed(0)}</p>
+            <p><img class="iconsq" src="images/attack-speed.png" alt=""/> Attack Speed: ${finalatkspd}</p></div>
         `;
-        return { unitName, rank, level, atk, hp, speed };
+        return { unitName, rank, level, atk: finalAtk, hp: finalHp, speed: finalatkspd };
 
     } 
     
@@ -1135,6 +1241,8 @@ function calculateStats() {
     
     
 }
+
+
 
 function addToComparison() {
     const tableBody = document.querySelector("#comparison-table .txbody");
