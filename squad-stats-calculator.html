@@ -224,7 +224,7 @@ button, input, select, textarea {
   <input type="number" id="level-input" min="1" max="300" value="1" ><br>
   
 <!-- Passive Selection Dropdowns -->
-<label for="unit-skills">Skill Upgrade:</label>
+<label id ="skiltitl" for="unit-skills"></label>
 <div id="passive-selection">
     <div id="atk-dropdown-container"></div>
     <div id="hp-dropdown-container"></div>
@@ -1112,11 +1112,14 @@ function populatePassiveDropdowns(unit, rank) {
     const atkContainer = document.getElementById('atk-dropdown-container');
     const hpContainer = document.getElementById('hp-dropdown-container');
     const atkspdContainer = document.getElementById('atkspd-dropdown-container');
+    const skiltitl = document.getElementById('skiltitl');
+    
 
     atkContainer.innerHTML = '';
     hpContainer.innerHTML = '';
-    atkspdContainer.innerHTML = '';
-
+    atkspdContainer.innerHTML = '';    
+    skiltitl.innerHTML = '';
+    
      if (unit.Passive !== "N/A") {
         // Determine max passive level based on rank
         let maxpasLevel = 1; // Always include Level 1
@@ -1136,7 +1139,9 @@ function populatePassiveDropdowns(unit, rank) {
                 atkDropdown.appendChild(option);
             }
             atkContainer.innerHTML += '<div>Damage</div>';
-            atkContainer.appendChild(atkDropdown);
+            atkContainer.appendChild(atkDropdown); 
+            skiltitl.innerHTML = 'Skill Upgrade:';
+            
         }
 
         // HP Passive Dropdown
@@ -1150,7 +1155,8 @@ function populatePassiveDropdowns(unit, rank) {
             }
             
             hpContainer.innerHTML += '<div>HP</div>';
-            hpContainer.appendChild(hpDropdown);
+            hpContainer.appendChild(hpDropdown);            
+            skiltitl.innerHTML = 'Skill Upgrade:';
         }
         
         // ATKSPD Passive Dropdown
@@ -1164,11 +1170,14 @@ function populatePassiveDropdowns(unit, rank) {
             }
             atkspdContainer.innerHTML += '<div>Attack Speed</div>';
             atkspdContainer.appendChild(atkspdDropdown);
+            skiltitl.innerHTML = 'Skill Upgrade:';
         }
     } else {
         atkContainer.innerHTML = '';
         hpContainer.innerHTML = '';
         atkspdContainer.innerHTML = '';
+        skiltitl.innerHTML = '';
+        
     }
 }
 function updateDropdowns() {
@@ -1183,6 +1192,8 @@ function updateDropdowns() {
         document.getElementById('atk-dropdown-container').innerHTML = '';
         document.getElementById('hp-dropdown-container').innerHTML = '';
         document.getElementById('atkspd-dropdown-container').innerHTML = '';
+        document.getElementById('skiltitl').innerHTML = '';
+        
     }
 }
 
@@ -1220,7 +1231,7 @@ function calculateStats() {
     // Apply passives
     const finalAtk = atk * (1 + selectedAtkPassive / 100);
     const finalHp = hp * (1 + selectedHpPassive / 100);
-    const finalatkspd = speed * (1 + selectedatkspdPassive / 100);
+    const finalatkspd = speed * (1 - selectedatkspdPassive / 100);
 
         // Display results
         document.getElementById('result').innerHTML = `
