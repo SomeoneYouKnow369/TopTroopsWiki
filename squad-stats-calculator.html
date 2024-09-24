@@ -285,7 +285,797 @@ $('#toggle').click(function() {
 });
 
 </script>
-
+<script>
+// Squad data and Rank Coefficients JSON
+const squadData = [
+    {
+        "Name": "Abomination",
+        "Rarity": "Epic",
+        "Archetype": "Frontline",
+        "Base ATK": "9",
+        "Attack Speed": "2.00",
+        "Base HP": "306",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Amethyst Aegis",
+        "Rarity": "Legendary",
+        "Archetype": "Frontline",
+        "Base ATK": "13",
+        "Attack Speed": "2.50",
+        "Base HP": "360",
+        "Passive": {
+            "DEF": [
+                16,
+                18,
+                20,
+                25,
+                30
+            ]
+        }
+    },
+	{
+        "Name": "Amethyst Claymore",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "24",
+        "Attack Speed": "2.00",
+        "Base HP": "200",
+        "Passive":{
+            "ATK": [10, 20, 30, 40, 50]
+        }
+    },
+    {
+        "Name": "Arcane Hunter",
+        "Rarity": "Epic",
+        "Archetype": "Ranged",
+        "Base ATK": "9",
+        "Attack Speed": "2.55",
+        "Base HP": "102",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Archangel",
+        "Rarity": "Legendary",
+        "Archetype": "Support",
+        "Base ATK": "18",
+        "Attack Speed": "2.50",
+        "Base HP": "170",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Armored Troll",
+        "Rarity": "Legendary",
+        "Archetype": "Frontline",
+        "Base ATK": "13",
+        "Attack Speed": "2.50",
+        "Base HP": "360",
+        "Passive": {
+            "HP": [
+                8,
+                10,
+                12,
+                18,
+                25
+            ]
+        }
+    },
+    {
+        "Name": "Battle Drummer",
+        "Rarity": "Legendary",
+        "Archetype": "Support",
+        "Base ATK": "18",
+        "Attack Speed": "2.50",
+        "Base HP": "170",
+        "Passive": {
+            "ATK Speed": [
+                2,
+                5,
+                10,
+                15,
+                20
+            ]
+        }
+    },
+    {
+        "Name": "Beekeeper",
+        "Rarity": "Legendary",
+        "Archetype": "Mage",
+        "Base ATK": "20",
+        "Attack Speed": "1.50",
+        "Base HP": "70",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Berserker",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "30",
+        "Attack Speed": "2.50",
+        "Base HP": "200",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Blazing Champion",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "18",
+        "Attack Speed": "1.50",
+        "Base HP": "200",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Bloodlust Bullet",
+        "Rarity": "Legendary",
+        "Archetype": "Ranged",
+        "Base ATK": "10",
+        "Attack Speed": "1.00",
+        "Base HP": "120",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Boomerang Mercenary",
+        "Rarity": "Legendary",
+        "Archetype": "Ranged",
+        "Base ATK": "12",
+        "Attack Speed": "2.00",
+        "Base HP": "120",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Catapult",
+        "Rarity": "Epic",
+        "Archetype": "Ranged",
+        "Base ATK": "15",
+        "Attack Speed": "3.00",
+        "Base HP": "102",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Cleric",
+        "Rarity": "Epic",
+        "Archetype": "Support",
+        "Base ATK": "6",
+        "Attack Speed": "1.00",
+        "Base HP": "145",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Conductor",
+        "Rarity": "Epic",
+        "Archetype": "Mage",
+        "Base ATK": "8",
+        "Attack Speed": "2.00",
+        "Base HP": "60",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Crabomancer",
+        "Rarity": "Epic",
+        "Archetype": "Melee",
+        "Base ATK": "20",
+        "Attack Speed": "2.00",
+        "Base HP": "170",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Dakini",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "18",
+        "Attack Speed": "1.50",
+        "Base HP": "280",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Demi Angel",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "30",
+        "Attack Speed": "2.50",
+        "Base HP": "280",
+        "Passive": {
+            "Crit Chance": [
+                15,
+                17,
+                20,
+                22,
+                25
+            ]
+        }
+    },
+    {
+        "Name": "Dwarf Engineer",
+        "Rarity": "Legendary",
+        "Archetype": "Mage",
+        "Base ATK": "27",
+        "Attack Speed": "3.00",
+        "Base HP": "70",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Eira",
+        "Rarity": "Legendary",
+        "Archetype": "Assassin",
+        "Base ATK": "27",
+        "Attack Speed": "1.50",
+        "Base HP": "280",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "El Bandolero",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "18",
+        "Attack Speed": "1.50",
+        "Base HP": "200",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Elemental Witch",
+        "Rarity": "Legendary",
+        "Archetype": "Mage",
+        "Base ATK": "30",
+        "Attack Speed": "3.00",
+        "Base HP": "70",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Ember Elemental",
+        "Rarity": "Legendary",
+        "Archetype": "Mage",
+        "Base ATK": "9",
+        "Attack Speed": "1.00",
+        "Base HP": "70",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Explorabbit",
+        "Rarity": "Legendary",
+        "Archetype": "Assassin",
+        "Base ATK": "27",
+        "Attack Speed": "1.50",
+        "Base HP": "110",
+        "Passive": {
+            "Crit Chance": [
+                30,
+                40,
+                50,
+                60,
+                75
+            ]
+        }
+    },
+    {
+        "Name": "Fire Slasher",
+        "Rarity": "Legendary",
+        "Archetype": "Mage",
+        "Base ATK": "15",
+        "Attack Speed": "2.50",
+        "Base HP": "120",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Frozen Heart",
+        "Rarity": "Legendary",
+        "Archetype": "Mage",
+        "Base ATK": "9",
+        "Attack Speed": "1.00",
+        "Base HP": "70",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Girtablilu",
+        "Rarity": "Legendary",
+        "Archetype": "Ranged",
+        "Base ATK": "3",
+        "Attack Speed": "1.00",
+        "Base HP": "120",
+        "Passive": {
+            "Crit Chance": [
+                20,
+                30,
+                40,
+                50,
+                60
+            ],
+            "Crit Damage": [
+                25,
+                50,
+                100,
+                125,
+                150
+            ]
+        }
+    },
+    {
+        "Name": "Golem",
+        "Rarity": "Epic",
+        "Archetype": "Frontline",
+        "Base ATK": "9",
+        "Attack Speed": "2.00",
+        "Base HP": "306",
+        "Passive": {
+            "DEF": [
+                4,
+                8,
+                12,
+                16,
+                20
+            ]
+        }
+    },
+    {
+        "Name": "Herbalist",
+        "Rarity": "Legendary",
+        "Archetype": "Support",
+        "Base ATK": "18",
+        "Attack Speed": "2.50",
+        "Base HP": "170",
+        "Passive": {
+            "DEF": [
+                16,
+                18,
+                20,
+                25,
+                30
+            ]
+        }
+    },
+    {
+        "Name": "Hermes",
+        "Rarity": "Legendary",
+        "Archetype": "Assassin",
+        "Base ATK": "18",
+        "Attack Speed": "1.00",
+        "Base HP": "706",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Holy Protector",
+        "Rarity": "Legendary",
+        "Archetype": "Frontline",
+        "Base ATK": "8",
+        "Attack Speed": "1.50",
+        "Base HP": "504",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Imperial Elf",
+        "Rarity": "Legendary",
+        "Archetype": "Ranged",
+        "Base ATK": "6",
+        "Attack Speed": "1.00",
+        "Base HP": "168",
+        "Passive": {
+            "Crit Chance": [
+                5,
+                10,
+                15,
+                20,
+                25
+            ]
+        }
+    },
+    {
+        "Name": "Inferno Shredder",
+        "Rarity": "Legendary",
+        "Archetype": "Support",
+        "Base ATK": "21",
+        "Attack Speed": "3.00",
+        "Base HP": "170",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Juggernaut",
+        "Rarity": "Legendary",
+        "Archetype": "Frontline",
+        "Base ATK": "13",
+        "Attack Speed": "2.50",
+        "Base HP": "360",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Leshy",
+        "Rarity": "Legendary",
+        "Archetype": "Mage",
+        "Base ATK": "14",
+        "Attack Speed": "1.50",
+        "Base HP": "98",
+        "Passive": {
+            "ATK": [
+                10,
+                20,
+                30,
+                40,
+                50
+            ]
+        }
+    },
+	{
+        "Name": "Meiga",
+        "Rarity": "Legendary",
+        "Archetype": "Support",
+        "Base ATK": "11",
+        "Attack Speed": "1.50",
+        "Base HP": "170",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Merman",
+        "Rarity": "Epic",
+        "Archetype": "Melee",
+        "Base ATK": "15",
+        "Attack Speed": "1.50",
+        "Base HP": "170",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Mushroom Shield",
+        "Rarity": "Epic",
+        "Archetype": "Frontline",
+        "Base ATK": "9",
+        "Attack Speed": "2.00",
+        "Base HP": "306",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Necromancer Rat",
+        "Rarity": "Epic",
+        "Archetype": "Mage",
+        "Base ATK": "15",
+        "Attack Speed": "1.70",
+        "Base HP": "60",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Ninja Mole",
+        "Rarity": "Epic",
+        "Archetype": "Assassin",
+        "Base ATK": "15",
+        "Attack Speed": "1.00",
+        "Base HP": "131",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Oni Warrior",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "24",
+        "Attack Speed": "2.00",
+        "Base HP": "200",
+        "Passive": {
+            "ATK": [
+                10,
+                20,
+                30,
+                40,
+                50
+            ]
+        }
+    },
+    {
+        "Name": "Ose",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "24",
+        "Attack Speed": "2.00",
+        "Base HP": "280",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Pyromaniac",
+        "Rarity": "Epic",
+        "Archetype": "Mage",
+        "Base ATK": "8",
+        "Attack Speed": "1.00",
+        "Base HP": "83",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Rainbow Chariot",
+        "Rarity": "Legendary",
+        "Archetype": "Ranged",
+        "Base ATK": "15",
+        "Attack Speed": "2.50",
+        "Base HP": "120",
+        "Passive": {
+            "Crit Chance": [
+                35,
+                35,
+                35,
+                35,
+                35
+            ],
+            "Crit Damage": [
+                80,
+                100,
+                125,
+                150,
+                200
+            ]
+        }
+    },
+    {
+        "Name": "Royal Guard",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "18",
+        "Attack Speed": "1.50",
+        "Base HP": "200",
+        "Passive": {
+            "Crit Chance": [
+                5,
+                10,
+                15,
+                20,
+                25
+            ]
+        }
+    },
+    {
+        "Name": "Samurai",
+        "Rarity": "Legendary",
+        "Archetype": "Assassin",
+        "Base ATK": "18",
+        "Attack Speed": "1.00",
+        "Base HP": "110",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Sekhmet",
+        "Rarity": "Legendary",
+        "Archetype": "Support",
+        "Base ATK": "0",
+        "Attack Speed": "2.00",
+        "Base HP": "170",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Sharpshooter",
+        "Rarity": "Legendary",
+        "Archetype": "Ranged",
+        "Base ATK": "15",
+        "Attack Speed": "2.50",
+        "Base HP": "120",
+        "Passive": {
+            "Crit Chance": [
+                7,
+                7.5,
+                8,
+                9,
+                10
+            ]
+        }
+    },
+    {
+        "Name": "Slime King",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "24",
+        "Attack Speed": "2.00",
+        "Base HP": "200",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Spirited Tiger",
+        "Rarity": "Legendary",
+        "Archetype": "Frontline",
+        "Base ATK": "13",
+        "Attack Speed": "2.50",
+        "Base HP": "360",
+        "Passive": {
+            "DEF": [
+                16,
+                18,
+                20,
+                25,
+                30
+            ]
+        }
+    },
+    {
+        "Name": "Stone Hermit",
+        "Rarity": "Legendary",
+        "Archetype": "Support",
+        "Base ATK": "14",
+        "Attack Speed": "2.00",
+        "Base HP": "170",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Storm",
+        "Rarity": "Legendary",
+        "Archetype": "Mage",
+        "Base ATK": "9",
+        "Attack Speed": "1.00",
+        "Base HP": "70",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Swash Buckler",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "20",
+        "Attack Speed": "2.00",
+        "Base HP": "200",
+        "Passive": {
+            "HP": [
+                4,
+                8,
+                12,
+                16,
+                20
+            ],
+            "ATK": [
+                10,
+                20,
+                30,
+                40,
+                50
+            ]
+        }
+    },
+    {
+        "Name": "Sylvan Spirit",
+        "Rarity": "Legendary",
+        "Archetype": "Support",
+        "Base ATK": "11",
+        "Attack Speed": "1.50",
+        "Base HP": "170",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "The King",
+        "Rarity": "Legendary",
+        "Archetype": "Support",
+        "Base ATK": "14",
+        "Attack Speed": "2.00",
+        "Base HP": "170",
+        "Passive": {
+            "DEF": [
+                10,
+                12,
+                15,
+                18,
+                20
+            ]
+        }
+    },
+    {
+        "Name": "Thor",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "36",
+        "Attack Speed": "3.00",
+        "Base HP": "200",
+        "Passive": {
+            "HP": [
+                4,
+                8,
+                10,
+                16,
+                20
+            ]
+        }
+    },
+    {
+        "Name": "Thundershot",
+        "Rarity": "Legendary",
+        "Archetype": "Ranged",
+        "Base ATK": "9",
+        "Attack Speed": "1.50",
+        "Base HP": "120",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Toad Druid",
+        "Rarity": "Legendary",
+        "Archetype": "Assassin",
+        "Base ATK": "27",
+        "Attack Speed": "1.50",
+        "Base HP": "110",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Trickster",
+        "Rarity": "Legendary",
+        "Archetype": "Assassin",
+        "Base ATK": "18",
+        "Attack Speed": "1.00",
+        "Base HP": "110",
+        "Passive": {
+            "DEF": [
+                16,
+                18,
+                20,
+                25,
+                30
+            ]
+        }
+    },
+    {
+        "Name": "Valkyre",
+        "Rarity": "Epic",
+        "Archetype": "Melee",
+        "Base ATK": "15",
+        "Attack Speed": "1.50",
+        "Base HP": "238",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Vampire Queen",
+        "Rarity": "Legendary",
+        "Archetype": "Assassin",
+        "Base ATK": "18",
+        "Attack Speed": "1.00",
+        "Base HP": "110",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Verleaf",
+        "Rarity": "Epic",
+        "Archetype": "Support",
+        "Base ATK": "9",
+        "Attack Speed": "2.50",
+        "Base HP": "145",
+        "Passive": {
+            "DEF": [
+                4,
+                8,
+                12,
+                16,
+                20
+            ]
+        }
+    },
+    {
+        "Name": "Warrior Carriage",
+        "Rarity": "Epic",
+        "Archetype": "Assassin",
+        "Base ATK": "10",
+        "Attack Speed": "99.00",
+        "Base HP": "94",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Water Maiden",
+        "Rarity": "Legendary",
+        "Archetype": "Support",
+        "Base ATK": "18",
+        "Attack Speed": "2.50",
+        "Base HP": "170",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Wave Warrior Drenthest",
+        "Rarity": "Legendary",
+        "Archetype": "Mage",
+        "Base ATK": "18",
+        "Attack Speed": "2.00",
+        "Base HP": "70",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Werewolf",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "20",
+        "Attack Speed": "1.00",
+        "Base HP": "200",
+        "Passive": "N/A"
+    },
+    {
+        "Name": "Ymir",
+        "Rarity": "Legendary",
+        "Archetype": "Melee",
+        "Base ATK": "18",
+        "Attack Speed": "1.50",
+        "Base HP": "200",
+        "Passive": "N/A"
+    }
+];
+</script>
 
 <script type="text/javascript" src="js/squad-stats.js"></script>
 
