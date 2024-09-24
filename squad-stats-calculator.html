@@ -155,6 +155,9 @@ width: 100%;
     min-height: 71px;
     text-align: center;
 }
+.calsec br {
+    display: none;
+}
 .compunit {
     width: 120px;
 }
@@ -186,7 +189,7 @@ padding: 18px;
 button, input, select, textarea {
     display: block;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 }
       </style>
@@ -219,7 +222,7 @@ button, input, select, textarea {
   </div>
   
   
-    <div class=""> 
+    <div class="calsec"> 
     <h2>Select the Unit</h2>
   <label for="unit-select">Unit Name:</label>
   <select id="unit-select" onchange="updateDropdowns()"></select>
@@ -231,7 +234,8 @@ button, input, select, textarea {
   </select>
 
   <label for="level-input">Enter Level (1-300):</label>
-  <input type="number" id="level-input" min="1" max="300" value="1" ><br>
+  <span class="number">
+	<span class="minus">-</span><input type="number" id="level-input" min="1" max="300" value="1" ><span class="plus">+</span></span><br>
   
 <!-- Passive Selection Dropdowns -->
 <label id ="skiltitl" for="unit-skills"></label>
@@ -293,6 +297,47 @@ $('#toggle').click(function() {
    /* $(this).toggleClass('toggle-active');*/
     $('#sidebar').toggleClass('visible');
 });
+
+
+//----------plusminusnumber-----------------------
+$(document).ready(function() {
+    var action;
+
+    function increment($input) {
+        $input.val(parseInt($input.val()) + 1);
+        $input.change();
+    }
+
+    function decrement($input) {
+        var count = parseInt($input.val()) - 1;
+        count = count < 1 ? 1 : count;
+        $input.val(count);
+        $input.change();
+    }
+
+    // Combined mousedown/touchstart for minus button
+    $('.minus').on('mousedown touchstart', function () {
+        var $input = $(this).parent().find('input');
+        decrement($input);
+        action = setInterval(function() {
+            decrement($input);
+        }, 200); // Continue to decrement every 200ms
+    }).on('mouseup touchend touchleave mouseleave', function() {
+        clearInterval(action); // Stop decrementing when the mouse or touch is released or leaves the button
+    });
+
+    // Combined mousedown/touchstart for plus button
+    $('.plus').on('mousedown touchstart', function () {
+        var $input = $(this).parent().find('input');
+        increment($input);
+        action = setInterval(function() {
+            increment($input);
+        }, 200); // Continue to increment every 200ms
+    }).on('mouseup touchend touchleave mouseleave', function() {
+        clearInterval(action); // Stop incrementing when the mouse or touch is released or leaves the button
+    });
+});
+
 
 </script>
 <script>
