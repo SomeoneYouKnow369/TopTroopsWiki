@@ -207,7 +207,7 @@ function addToComparison() {
         const newRow = document.createElement('div');
         
         newRow.innerHTML = `
-            <div class="thdata"><div><spn class="compunit">${calculatedStats.unitName}</span></div>
+            <div class="thdata"><div><spn class="compunit"><img class="sqimg" src="images/units/${calculatedStats.unitName}.png" alt=""/> </span></div>
             <div>${calculatedStats.rank}</div>
             <div>${calculatedStats.level}</div>
             <div>${calculatedStats.atk.toFixed(0)}</div>
