@@ -98,6 +98,9 @@ display: flex;
 .thcom {
     font-weight: 700;
 }
+.thcom div:first-child {
+        height: 150px;
+}
 .thcom div{
     border: 1px solid #a6a6a6;
     padding: 5px 3px;
@@ -107,6 +110,12 @@ display: flex;
      min-height: 51px;
 	 text-align: center;
 }
+.thdata div:first-child {
+        height: 150px;
+}
+.thdata div .sqimg {
+    width: 73%;
+}
 .thdata div{
     border: 1px solid #a6a6a6;
     padding: 5px 0px;
@@ -114,12 +123,13 @@ display: flex;
     align-items: center;
     justify-content: center;
      min-height: 51px;
+     overflow: hidden;
 }
 .thdata {
     text-align: center;
 }
 .compunit{
-padding: 0px 10px;
+width: 100%;
 }
 #passive-selection{
     display: flex;
@@ -246,7 +256,7 @@ button, input, select, textarea {
 <button class="sqbtn" onclick="clearComparison()">Clear</button>
   <div id="comparison-table">
     <div class="thcom">
-        <div>Unit Name</div>
+        <div>Unit Pic</div>
         <div>Rank</div>
         <div>Level</div>
         <div>Attack</div>
