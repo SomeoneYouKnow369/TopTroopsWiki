@@ -316,29 +316,18 @@ $(document).ready(function() {
     }
 
     // Combined mousedown/touchstart for minus button
-    $('.minus').on('mousedown touchstart', function () {
+    $('.minus').on('click', function () {
         var $input = $(this).parent().find('input');
-        decrement($input);
-        action = setInterval(function() {
+        
             decrement($input);
-        }, 200); // Continue to decrement every 200ms
-    }).on('mouseup touchend touchleave mouseleave', function() {
-        clearInterval(action); // Stop decrementing when the mouse or touch is released or leaves the button
-    });
+        });
 
     // Combined mousedown/touchstart for plus button
-    $('.plus').on('mousedown touchstart', function () {
+    $('.plus').on('click', function () {
         var $input = $(this).parent().find('input');
-        increment($input);
-        action = setInterval(function() {
             increment($input);
-        }, 200); // Continue to increment every 200ms
-    }).on('mouseup touchend touchleave mouseleave', function() {
-        clearInterval(action); // Stop incrementing when the mouse or touch is released or leaves the button
-    });
-});
-
-
+        });
+   });
 </script>
 <script>
 // Squad data and Rank Coefficients JSON
