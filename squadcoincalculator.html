@@ -67,8 +67,27 @@
     background: red;
     border-color: red;
 }
-.selection{
-margin-top:10px;
+.selection {
+    margin: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23%;
+    border: 1px solid #fff;
+    border-radius: 14px;
+    padding: 10px;
+    justify-content: space-between;
+    height: 204px;
+}
+.selection span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.selection input {
+width:100%;
+margin-left:0!important;
 }
 .iconsq{
 max-height: 35px;
@@ -83,11 +102,20 @@ label {
     margin-top: 10px;
     border-top: 1px solid #ccc;
 }
+@media (max-width: 1100px) {
+.selection {
+    width: 30%;
+}
 
+}
 @media (max-width: 670px) {
 .divpd {
     flex-direction: column;
     align-items: flex-start;
+}
+.selection {
+    margin: 10px 0px;
+    width: 100%;
 }
 .sqbtn {
     margin-left: 0!important;
