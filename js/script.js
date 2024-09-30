@@ -152,7 +152,7 @@ function setupTierText() {
         if (selectedMode === 'arena') {
             tierText = $(this).find('.maintire').text().trim();
         } else if (selectedMode === 'adventure') {
-            tierText = $(this).find('.modetier td:nth-child(1)').text().trim();
+            tierText = $(this).find('.modetier td:nth-child(2)').text().trim();
         } else if (selectedMode === 'ancient') {
             tierText = $(this).find('.modetier td:nth-child(3)').text().trim();
         }
