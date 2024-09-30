@@ -27,6 +27,23 @@ text-align: center;
 .footer:hover{
  color: #fff;
 }
+.pmessage {
+    width: 100%;
+    padding: 11px 24px;
+    background: rgb(0, 0, 0, 0.32);
+    border-radius: 14px;
+    color: #ffffff;
+    margin: 20px 15px;
+    font-weight: 300;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+.pmessage img {
+    width: 36px;
+    margin-right: 12px;
+    vertical-align: top;
+}
 .lastup {
     font-weight: 400;
     font-size: 12px;
@@ -63,6 +80,7 @@ width: 100%;
 }
 .number input{
 margin-right: 0px;
+max-width: 100px;
 }
 button, input, select, textarea {
     border-radius: 10px;
@@ -73,6 +91,9 @@ button, input, select, textarea {
 }
 select option{
     background-color: #3E007E;
+}
+.calsec{
+padding-left: 15px;
 }
 .bgovl {
     background: linear-gradient(to bottom, rgb(205, 0, 200, 0.43) 9%, rgb(0, 131, 171, 1) 100%);
@@ -847,6 +868,16 @@ body{
     text-align: center;
     margin-bottom: 10px;
 }
+.pmessage {
+    padding: 14px 16px 10px 16px;
+    margin: 20px 9px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.pmessage img {
+    margin-bottom: 10px;
+    width: 26px;
+}
 .sectitle {
     padding: 0px 40px 0px 85px;
     font-size: 22px;
@@ -923,6 +954,7 @@ button, input, select, textarea {
     width: 67%;
     display: inline-block;
     margin-bottom: 0px;
+    max-width: initial;
 }
 label {
     display: block;
