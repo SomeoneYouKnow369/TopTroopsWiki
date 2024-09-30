@@ -27,6 +27,23 @@ text-align: center;
 .footer:hover{
  color: #fff;
 }
+.pmessage {
+    width: 100%;
+    padding: 11px 24px;
+    background: rgb(0, 0, 0, 0.32);
+    border-radius: 14px;
+    color: #ffffff;
+    margin: 20px 15px;
+    font-weight: 300;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+.pmessage img {
+    width: 28px;
+    margin-right: 12px;
+    vertical-align: top;
+}
 .lastup {
     font-weight: 400;
     font-size: 12px;
@@ -850,6 +867,17 @@ body{
     margin-right: 0px;
     text-align: center;
     margin-bottom: 10px;
+}
+.pmessage {
+    padding: 14px 16px 10px 16px;
+    margin: 20px 9px;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 96%;
+}
+.pmessage img {
+    margin-bottom: 10px;
+    width: 26px;
 }
 .sectitle {
     padding: 0px 40px 0px 85px;
