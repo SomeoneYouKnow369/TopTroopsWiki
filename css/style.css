@@ -873,6 +873,7 @@ body{
     margin: 20px 9px;
     align-items: flex-start;
     flex-direction: column;
+    width: 96%;
 }
 .pmessage img {
     margin-bottom: 10px;
@@ -974,6 +975,7 @@ label {
 }
 .sqitem {
     flex-direction: column;
+    border-radius: 12px;
 }
 .sqitemthumb {
     width: 100%;
@@ -985,7 +987,7 @@ label {
 .sqitemdetails {
     padding-right: 27px;
     padding-left: 27px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     width: 100%;
 }
 
