@@ -43,7 +43,7 @@
     border-radius: 20px;
     text-align: center;
     font-size: 16px;
-    width: 72%;
+    width: 78%;
     margin: auto;
 }
 p {
@@ -53,29 +53,59 @@ color: #fff;
     text-align: center;
     font-size: 16px;
 }
-.mnames{
+.mnames {
     text-align: left;
-    margin-bottom: 25px;
+    margin-bottom: 3px;
     margin-top: 15px;
+    width: 29%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: 1px solid #979797;
+    padding: 12px;
+    justify-content: center;
 }
-.mnmecon{
-    display: inline-block;    
+.mnames strong {
+    text-align: center;
+    line-break: anywhere;
+    font-size: 18px;
+    margin-bottom: 11px;
+}
+span.mbbt {
+    text-align: center;
+    font-size: 14px;
+}
+.mnmecon {
+    display: flex;
     margin: auto;
     margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .oname {
-    margin-top: 40px;
+    margin-top: 29px;
     margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0px;
 }
 .oname li {
-    margin-right: 5px;
+    margin-right: 6px;
+    margin-left: 6px;
     margin-bottom: 22px;
-    width: 32%;
-    text-align: left;
+    width: 23%;
     vertical-align: top;
     font-weight: 600;
+    list-style: none;
+    padding: 16px 10px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #979797;
 }
 
 @media (max-width: 1100px) {
@@ -103,19 +133,22 @@ p {
 }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 600px) {
 .sqcalcon {
     padding: 25px;
     font-size: 15px;
 }
 .oname {
-    padding-left: 20px;
-    justify-content: space-between;
+    padding-left: 0px;
+    justify-content: space-around;
 }
 .oname li {
     margin-right: 0px;
     margin-bottom: 18px;
     width: 44%;
+}
+.mnames {
+    width: 100%;
 }
 p {
     line-height: 20px;
@@ -132,7 +165,9 @@ p {
 .sqcalcon {
     font-size: 14px;
 }
-
+.oname li {
+    width: 47%;
+}
 }
 
 </style>
@@ -170,22 +205,31 @@ p {
 </p>
 
 <div class="mnmecon">
-<div class="mnames"><strong>SiedlerMaster</strong> – <span class="mbbt">Previous author who has  now quit.</span></div>
-<div class="mnames"><strong>Zephyr369 (aka  SomeoneYouKnow)</strong> – <span class="mbbt">Main Author as well as Website Manager.</span></div>
-<div class="mnames"><strong>XylarBlade</strong> – <span class="mbbt">Website Designer.</span></div>
-<div class="mnames"><strong>Orinne </strong>– <span class="mbbt">Maker of the Squad Coin  &amp; XP Cost Calculator.</span></div>
-<div class="mnames"><strong>Hp (aka Shiep)</strong> – <span class="mbbt">Maker of the Squad Stat  Calculator.</span></div>
-<div class="mnames"><strong>SirHerpDerp (aka  OfficialNovaGaming)</strong> – <span class="">Author of the Unit Effects page.</span></div>
-<div class="mnames"><strong>BFGamez</strong> – <span class="mbbt">Working on the Squad  Summary page.</span></div>
-<div class="mnames"><strong>StrangeTalent</strong> – <span class="mbbt">Discord manager.</span></div>
-<div class="mnames"><strong>Chon (aka blake_k47)</strong> – <span class="mbbt">Discord helper and game  tips provider.</span></div>
+<div class="mnames"><strong>SiedlerMaster</strong><span class="mbbt">Previous author who has  now quit.</span></div>
+<div class="mnames"><strong>Zephyr369<br><div style="
+    font-size: 15px;
+">(aka  SomeoneYouKnow)</div>
+</strong><span class="mbbt">Main Author as well as Website Manager.</span></div>
+<div class="mnames"><strong>XylarBlade</strong><span class="mbbt">Website Designer.</span></div>
+<div class="mnames"><strong>Orinne </strong><span class="mbbt">Maker of the Squad Coin  &amp; XP Cost Calculator.</span></div>
+<div class="mnames"><strong>Hp<br><div style="
+    font-size: 15px;
+">(aka Shiep)</div></strong><span class="mbbt">Maker of the Squad Stat  Calculator.</span></div>
+<div class="mnames"><strong>SirHerpDerp<br><div style="
+    font-size: 14px;
+">(aka  OfficialNovaGaming)</div></strong><span class="mbbt">Author of the Unit Effects page.</span></div>
+<div class="mnames"><strong>BFGamez</strong><span class="mbbt">Working on the Squad  Summary page.</span></div>
+<div class="mnames"><strong>StrangeTalent</strong><span class="mbbt">Discord manager.</span></div>
+<div class="mnames"><strong>Chon<br><div style="
+    font-size: 15px;
+">(aka blake_k47)</div></strong><span class="mbbt">Discord helper and game  tips provider.</span></div>
 </div>
 
 <br><p>Now below is the list of  names of players who helped with providing information for the tier list:</p>
 <ul class="oname">
 <li>Inazo</li>
 <li>Zman</li>
-<li>Smallfists (Small Pennies)</li>
+<li>Smallfists<br>(Small Pennies)</li>
 <li>Bonk</li>
 <li>Levi</li>
 <li>TheSamus</li>
