@@ -1,4 +1,5 @@
 // Filterdropdown-------------------------------------- 
+
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("showd");
 }
@@ -8,6 +9,7 @@ $(".dropbtn").on('click', function() {
 
 
 // Filter-----------------------------------------
+
 $('input[type="radio"], select#sort-tire').change(function() {
   filterNow();
 });
@@ -49,6 +51,7 @@ filtered = filtered.filter(function() {
 
 
 // Popup--------------------------------------
+
 document.addEventListener('DOMContentLoaded', function() {
     const newsItems = document.querySelectorAll('.news-item');
     const overlay = document.querySelector('.overlay');
@@ -77,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Search--------------------------------------
+
 document.getElementById('search-input').addEventListener('keyup', function() {
     var searchTerm = this.value.toLowerCase();
     var articles = document.querySelectorAll('.news-item');    
@@ -109,15 +113,40 @@ $('#search-input').on('input', function() {
   }
   
 //=====rightclick-----------------------  
+
 $(document).contextmenu(function() {
     return false;
 });  
 
 
+// FactionRarerityimages-------------------------------------- 
+
+$(document).ready(function() {
+        // Select all articles with the class 'news-item'
+        const articlesx = document.querySelectorAll('.news-item');
+
+        articlesx.forEach(articlex => {
+            // Get the data attributes
+            const rarityx = articlex.dataset.rarity;
+            const factionx = articlex.dataset.faction;
+
+            // Find the images inside the article
+            const rarityImg = articlex.querySelector('.rarity-img');
+            const factionImg = articlex.querySelector('.faction-img');
+
+            // Set the src attributes based on the data attributes
+            if (rarityImg && factionImg) {
+                rarityImg.src = `images/${rarityx}.png`;
+                factionImg.src = `images/${factionx}.png`;
+            }
+        });
+});
 
 
 // TireColor-------------------------------------- 
+
 $(document).ready(function() {
+         
     // Initial setup
     setupTierText();
 
