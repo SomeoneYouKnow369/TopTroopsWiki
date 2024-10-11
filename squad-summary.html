@@ -22,7 +22,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Squad Summary | Top Troops WIKI</title>
-<meta name="description" content="Wiki website of the game called 'Top Troops'">
+<meta name="description" content="Brief description of each unit. Wiki website of the game called 'Top Troops'">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
@@ -39,6 +39,8 @@
             $('#sidebar').toggleClass('visible');
         });
     }); 
+    
+    $("#footer").load("footer.html", function() {}); 
 });
 </script>
 
@@ -271,8 +273,7 @@ font-weight: 600;
         <div class="sqitemthumb"><img src="images/units/Storm.png" alt=""><h3>STORM</h3>
         </div>
         <div class="sqitemdetails">
-        <strong>Summary:</strong><br>Strong Mage unit capable of damaging and potentially killing multiple enemies across the map with stuns and large damage from her bouncing attacks and Main skill. Works best with other Electrocute units as her own Electrocute is less reliable. <strong><br><br>Pros:</strong><ul><li>Attacks that bounce between up to 7 targets lets her hit enemies in the front and backlines simultaneously.</li><li>High attack speed lets her get in multiple hits and chances for Electrocute and stun on enemies.</li><li>Big damage on Main Skill that can hit enemies anywhere on the map as long as they're Electrocuted.</li></ul><strong>Cons:</strong><ul><li>Her own Electrocute is RNG dependent, so she's reliant on other Electocute units to apply it more consistently for her (investment needed).</li></ul><strong>Pairs well with:</strong><ul><li><strong>Electrocute:</strong>Thor, Hermes, Thundershot, etc. can apply Electrocute to different parts of the map, making her less dependent on applying her own Electrocute and allowing her to hit more enemies with her main skill.</li></ul><strong>Does poorly against:</strong><ul><li><strong>Stun Immunity:</strong>While units immune to Stun can still be Electrocuted, this can still hamper her utility.</li><li><strong>Multi-population:</strong>Multi-population units can eat the bounce on her attacks, making it more difficult to hit other priority targets.</li><li><strong>Assassins: </strong>Can remove her before she causes much trouble.</li></ul>
-    </div>
+        <strong>Summary:</strong><br>Strong Mage unit capable of damaging and potentially killing multiple enemies across the map with stuns and large damage from her bouncing attacks and Main skill. Works best with other Electrocute units as her own Electrocute is less reliable. <strong><br><br>Pros:</strong><ul><li>Attacks that bounce between up to 7 targets lets her hit enemies in the front and backlines simultaneously.</li><li>High attack speed lets her get in multiple hits and chances for Electrocute and stun on enemies.</li><li>Big damage on Main Skill that can hit enemies anywhere on the map as long as they're Electrocuted.</li></ul><strong>Cons:</strong><ul><li>Her own Electrocute is RNG dependent, so she's reliant on other Electocute units to apply it more consistently for her (investment needed).</li></ul><strong>Pairs well with:</strong><ul><li><strong>Electrocute:</strong>Thor, Hermes, Thundershot, etc. can apply Electrocute to different parts of the map, making her less dependent on applying her own Electrocute and allowing her to hit more enemies with her main skill.</li></ul><strong>Does poorly against:</strong><ul><li><strong>Stun Immunity:</strong>While units immune to Stun can still be Electrocuted, this can still hamper her utility.</li><li><strong>Multi-population:</strong>Multi-population units can eat the bounce on her attacks, making it more difficult to hit other priority targets.</li><li><strong>Assassins: </strong>Can remove her before she causes much trouble.</li></ul><strong>Gear:</strong><br>50% cooldown gear - you need your Storm to get their ability off first as it's often a screen wipe.<br><br><strong>Game Modes:</strong><br>Great in all PvP modes and good in Adventure. Poor in Ancients and Giant Hunt modes.     </div>
     </article>
     	
     <article class="sqitem">
@@ -320,8 +321,7 @@ font-weight: 600;
 <div class="overlay"></div>
 
 
-<div class="footer"> <br>
-<a href="https://discord.gg/uzcEVus48m" target="_blank">Follow us on Discord for more<br><img class="" src="images/discord.png" alt=""/></a></div>
+<div id="footer"></div>
 
 
 <script type="text/javascript" src="js/script.js"></script>

@@ -38,6 +38,8 @@
             $('#sidebar').toggleClass('visible');
         });
     }); 
+    
+    $("#footer").load("footer.html", function() {}); 
 });
 </script>
 
@@ -52,8 +54,7 @@
 .sqitem {
     align-items: center;
     width: 22%;
-    margin: 16px;
-    height: 190px;    
+    margin: 16px;  
     color: #ffffff;
     transition: all .3s;
 }
@@ -68,12 +69,7 @@
     width: auto;
     height: 120px;
 }
-.sqitem:hover .sqitemthumb img {
-    height: 45px;
-}
-.sqitem:hover p{
-    display: block;
-}
+
 .sqovelay {
     background-image: url("images/bg.jpg");
     opacity: 0.5;
@@ -97,7 +93,6 @@ p {
     line-height: 17px;
     font-weight: 300;
     text-align: left;
-    display: none;
     color: #fff;
     margin-top: 10px;
     transform: translateY(-10%)
@@ -288,8 +283,8 @@ h3 {
 <div class="overlay"></div>
 
 
-<div class="footer"> <br>
-<a href="https://discord.gg/uzcEVus48m" target="_blank">Follow us on Discord for more<br><img class="" src="images/discord.png" alt=""/></a></div>
+<div id="footer"></div>
+
 
 
 <script type="text/javascript" src="js/script.js"></script>
