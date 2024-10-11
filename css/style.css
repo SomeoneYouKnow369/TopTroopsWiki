@@ -14,21 +14,43 @@ font-family: "Poppins", sans-serif;
 
 }
 .footer{
-text-align: center;
-    display: block;
-    margin-bottom: 30px;
-    margin-top: 10px;
+margin: auto;
+margin-top: 25px;
+    width: 86%;
+    max-width: 1360px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
-.footer img, .footer a{
- max-width: 40px; 
+.footer p{
+    display: block;
+    max-width: 50%;
+    line-height: 17px;
+    font-weight: 300;
+    text-align: left;
+    color: #fff;
+    margin-top: 10px;
+    transform: translateY(-10%);
+    font-size: 12px;
+}
+.footer img{
+    max-width: 30px;
+    margin-left: 10px;
+}
+.footer a{
     color: #fff;
     font-size: 13px;
+        display: inline-flex;
+    align-items: center;
+        padding-right: 22px;
 }
 .footer:hover{
  color: #fff;
 }
 .pmessage {
-    width: 100%;
     padding: 11px 24px;
     background: rgb(0, 0, 0, 0.32);
     border-radius: 14px;
@@ -990,7 +1012,13 @@ label {
     padding-bottom: 20px;
     width: 100%;
 }
-
+.footer {
+    width: 80%;
+    flex-direction: column;
+}
+.footer p {
+    max-width: 100%;
+}
 
 }
 
