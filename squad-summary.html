@@ -358,20 +358,22 @@ document.getElementById('search-input').addEventListener('keyup', function() {
 
 
 //--------activeitem-------------------
-  const items = document.querySelectorAll('.sqitem');
+const items = document.querySelectorAll('.sqitem');
 
-  // Add click event listener to each item
-  items.forEach(item => {
-    item.addEventListener('click', () => {
+// Add click event listener to each item
+items.forEach(item => {
+  item.addEventListener('click', () => {
+    // Check if the clicked item is already active
+    if (!item.classList.contains('active')) {
       // Remove 'active' class from all items
       items.forEach(i => i.classList.remove('active'));
 
       // Add 'active' class to the clicked item
       item.classList.add('active');
       item.scrollIntoView({ block: 'start' });
-
-    });
+    }
   });
+});
 
 
 // Gototop-------------------------------------- 
