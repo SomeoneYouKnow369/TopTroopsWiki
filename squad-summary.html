@@ -66,7 +66,7 @@ font-weight: 600;
    transform: scale(1.05);
 }
 .sqitem.active:hover{
-   transform: scale(1);
+   transform: none;
 }
 .sqitem.active{
     width: 97%;
@@ -263,7 +263,7 @@ font-weight: 600;
         <div class="sqitemthumb"><img src="images/units/Spirited Tiger.png" alt=""><h3>SPIRITED TIGER</h3>
         </div>
         <div class="sqitemdetails">
-       <strong>Pros:</strong><br>Can self heal. Immune to being Stunned. Gives immunity to Stun to units in a radius around him. His fragments are in Clan Shop which makes him easier to build compared to other tank units. Has an x% chance to rebound projectiles back at the shooter which can help take down those ranged units.<br><br><strong>Cons:</strong><br>Very slow, and if drinking animation is interrupted he fails to self-heal. In matches where he is your last remaining unit, even with maxed skills, there is a good chance you will lose to timeout. Without being able to run 2 Tiger's you will have to decide whether you initially want him to tank at the front of your army or provide Stun immunity to your backline.<br><br><strong>Gear:</strong><br>Full Defence (defence caps at 95% so aim for this number) with 15% CD if you can but Health and Block Chance are good other sub rolls.<br><br><strong>Game Modes:</strong><br>All PvP modes and all other modes besides Ancient bosses and Giant Hunts.<br><br><strong>Investment:</strong><br>He is usable right out of the gate for Stun protection and as an early game tank but mid-late game he needs investment to be able to do a good job tanking.<br><br><strong>Other Information:</strong><br>This is not specific to Tiger, but his protection radius skews downwards. Units placed above and behind him may not benefit from stun protection despite initially being in his radius due to their individual movement patterns. Just being in his circle at the start of the match does not guarantee stun immunity.
+       <strong>Pros:</strong><br>Can self heal. Immune to being Stunned. Gives immunity to Stun to units in a radius around him. His fragments are in Clan Shop which makes him easier to build compared to other tank units. Has an x% chance to rebound projectiles back at the shooter which can help take down those ranged units.<br><br><strong>Cons:</strong><br>Very slow, and if drinking animation is interrupted he fails to self-heal. In matches where he is your last remaining unit, even with maxed skills, there is a good chance you will lose to timeout. Without being able to run 2 Tiger's you will have to decide whether you initially want him to tank at the front of your army or provide Stun immunity to your backline.<br><br><strong>Gear:</strong><br>Full Defence (defence caps at 90% so aim for this number) with 15% CD if you can but Health and Block Chance are good other sub rolls.<br><br><strong>Game Modes:</strong><br>All PvP modes and all other modes besides Ancient bosses and Giant Hunts.<br><br><strong>Investment:</strong><br>He is usable right out of the gate for Stun protection and as an early game tank but mid-late game he needs investment to be able to do a good job tanking.<br><br><strong>Other Information:</strong><br>This is not specific to Tiger, but his protection radius skews downwards. Units placed above and behind him may not benefit from stun protection despite initially being in his radius due to their individual movement patterns. Just being in his circle at the start of the match does not guarantee stun immunity.
     </div>
     </article>
     
@@ -368,7 +368,7 @@ document.getElementById('search-input').addEventListener('keyup', function() {
 
       // Add 'active' class to the clicked item
       item.classList.add('active');
-      item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      item.scrollIntoView({ block: 'start' });
 
     });
   });
