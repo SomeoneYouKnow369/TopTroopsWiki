@@ -1,4 +1,2 @@
 User-agent: *
-Disallow: /images/
-Allow: /images/logo.png
-Allow: /images/favicon.png
+Disallow: /images/units/
