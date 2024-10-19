@@ -149,10 +149,13 @@ function calculateStats() {
     const rankData = rankCoefficients.find(r => r.Rank === rank);
 
     if (unit && rankData && level > 0 && level <= 300) {
-        const rarity = unit.Rarity;
-        const rankCoefficient = rankData[rarity];
+         const rarity = unit.Rarity;
 
-        const levelMultiplier = calculateLevelMultiplier(level);
+        // Use rank coefficient, default to 1 if rank is 1
+        const rankCoefficient = rank === 1 ? 1 : rankData[rarity];
+
+        // Use level multiplier, default to 1 if level is 1
+        const levelMultiplier = level === 1 ? 1 : calculateLevelMultiplier(level);
 
         // Calculate stats
         const atk = unit["Base ATK"] * rankCoefficient * levelMultiplier;
@@ -176,7 +179,7 @@ function calculateStats() {
         // Display results
         document.getElementById('result').innerHTML = `
              <img class="sqimg" src="images/units/${unitName}.png" alt=""/> 
-            <div class="statstxt"><p><img class="iconsq" src="images/attack.png" alt=""/> Attack: ${finalAtk.toFixed(0)}</p>
+            <div class="statstxt"><p><img class="iconsq" src="images/attack.png" alt=""/> Attack: ${atk.toFixed(0)}</p>
             <p><img class="iconsq" src="images/health.png" alt=""/> HP: ${finalHp.toFixed(0)}</p>
             <p><img class="iconsq" src="images/attack-speed.png" alt=""/> Attack Speed: ${finalatkspd}</p></div>
         `;
