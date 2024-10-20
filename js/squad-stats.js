@@ -34,6 +34,9 @@ window.onload = () => {
         let option = document.createElement('option');
         option.value = rank.Rank;
         option.textContent = rank.Rank;
+        if (rank.Rank === 4) {
+            option.selected = true;
+        }
         rankSelect.appendChild(option);
     });
 };
