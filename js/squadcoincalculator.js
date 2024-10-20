@@ -34,9 +34,9 @@ const xpConversions = [
 	{"Type": "Rare", "Rank": 2, "XPConversion": 35, "Multiplier": 3},
 	{"Type": "Rare", "Rank": 3, "XPConversion": 100, "Multiplier": 8},
 	{"Type": "Rare", "Rank": 4, "XPConversion": 350, "Multiplier": 20},
-	{"Type": "Trainer", "Rank": 1, "XPConversion": 100, "Multiplier": 3},
-	{"Type": "Trainer", "Rank": 2, "XPConversion": 200, "Multiplier": 7},
-	{"Type": "Trainer", "Rank": 3, "XPConversion": 600, "Multiplier": 35},
+	{"Type": "Trainer", "Rank": 1, "XPConversion": 100, "Multiplier": 5},
+	{"Type": "Trainer", "Rank": 2, "XPConversion": 200, "Multiplier": 10},
+	{"Type": "Trainer", "Rank": 3, "XPConversion": 600, "Multiplier": 30},
 	{"Type": "Trainer", "Rank": 4, "XPConversion": 2500, "Multiplier": 120}
 ];
 
