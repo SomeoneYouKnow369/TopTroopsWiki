@@ -1,62 +1,42 @@
-// --- Config --- //
-var purecookieDesc = "By using this website, you automatically accept that we use cookies."; // Description
-var purecookieButton = "Continue"; // Button text
-// ---        --- //
+document.addEventListener("DOMContentLoaded", function () {
+    const purecookieDesc = "By using this website, you automatically accept that we use cookies.";
+    const purecookieButton = "Continue";
 
-function pureFadeIn(elem, display){
-  var el = document.getElementById(elem);
-  el.style.opacity = 0;
-  el.style.display = display || "block";
+    function cookieConsent() {
+        if (!localStorage.getItem('purecookieDismiss')) {
+            console.log("Showing cookie consent");  // Log to confirm execution
 
-  (function fade() {
-    var val = parseFloat(el.style.opacity);
-    if (!((val += .02) > 1)) {
-      el.style.opacity = val;
-      requestAnimationFrame(fade);
+            // Create container for cookie consent
+            const consentContainer = document.createElement('div');
+            consentContainer.id = 'cookieConsentContainer';
+            consentContainer.className = 'cookieConsentContainer';
+
+            // Description text
+            const descDiv = document.createElement('div');
+            descDiv.className = 'cookieDesc';
+            descDiv.textContent = purecookieDesc;
+
+            // Button
+            const button = document.createElement('div');
+            button.className = 'cookieButton';
+            button.id = 'cookieButton';
+            button.textContent = purecookieButton;
+            button.addEventListener("click", purecookieDismiss);
+
+            // Append elements
+            consentContainer.appendChild(descDiv);
+            consentContainer.appendChild(button);
+            document.body.appendChild(consentContainer);
+        } else {
+            console.log("Cookie consent already dismissed");
+        }
     }
-  })();
-}
 
-function pureFadeOut(elem){
-  var el = document.getElementById(elem);
-  el.style.opacity = 1;
-
-  (function fade() {
-    if ((el.style.opacity -= .02) < 0) {
-      el.style.display = "none";
-    } else {
-      requestAnimationFrame(fade);
+    function purecookieDismiss() {
+        const consentContainer = document.getElementById('cookieConsentContainer');
+        if (consentContainer) consentContainer.style.display = 'none';
+        localStorage.setItem('purecookieDismiss', 'true');
     }
-  })();
-}
 
-function cookieConsent() {
-  if (!localStorage.getItem('purecookieDismiss')) {
-    let container = document.createElement('div');
-    container.className = "cookieConsentContainer";
-    container.id = "cookieConsentContainer";
-
-    let desc = document.createElement('div');
-    desc.className = "cookieDesc";
-    desc.innerText = purecookieDesc;
-
-    let button = document.createElement('div');
-    button.className = "cookieButton";
-    button.innerText = purecookieButton;
-    button.onclick = purecookieDismiss;
-
-    container.appendChild(desc);
-    container.appendChild(button);
-    document.body.appendChild(container);
-
-    pureFadeIn("cookieConsentContainer");
-  }
-}
-
-function purecookieDismiss() { 
-  pureFadeOut("cookieConsentContainer");
-  localStorage.setItem('purecookieDismiss', 'true'); // Save consent
-}
-
-window.onload = function() { cookieConsent(); };
-
+    cookieConsent(); // Initialize the cookie consent banner
+});
