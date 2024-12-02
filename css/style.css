@@ -796,7 +796,33 @@ width: 100%;
 .list:not(.active) .dttbl td{
 padding: 0px 5px;
 }
+/*----------------end--listview------------------*/
+/*----------------smallcards------------------*/
+.smallcards:not(.active) {
+    width: 7%;
+}
+.smallcards:not(.active) .news-txt {
+    padding: 0px 10px 0px 10px;
+    height: 0px;
+    overflow: hidden;
+}
+.smallcards:not(.active) .tire {
+    left: -11px;
+    top: -11px;
+    width: 35px;
+    height: 23px;
+    border-radius: 6px;
+    line-height: 20px;
+    font-size: 14px;
+}
+.smallcards:not(.active) .rfact img {
+    width: 23px;
+}
+.smallcards:not(.active) .rfact{
+    bottom: -14%;
+}
 
+/*----------------end--smallcards------------------*/
 
 @media (max-width: 1500px) {
 
@@ -870,6 +896,9 @@ h1 {
     margin-left: 5px;
     margin-top: 10px;
 }
+.smallcards:not(.active) {
+    width: 9%;
+}
 
 }
 
@@ -883,6 +912,9 @@ body{
 }
 .list:not(.active) .news-txt {
     width: 33%;
+}
+.smallcards:not(.active) {
+    width: 20%;
 }
 #gameModeSelect {
     width: 100%;
