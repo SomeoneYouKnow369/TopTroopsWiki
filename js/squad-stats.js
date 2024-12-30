@@ -33,10 +33,7 @@ window.onload = () => {
     rankCoefficients.forEach(rank => {
         let option = document.createElement('option');
         option.value = rank.Rank;
-        option.textContent = rank.Rank;
-        if (rank.Rank === 4) {
-            option.selected = true;
-        }
+        option.textContent = rank.Rank;       
         rankSelect.appendChild(option);
     });
 };
@@ -75,6 +72,13 @@ function populatePassiveDropdowns(unit, rank) {
         // ATK Passive Dropdown
         if (unit.Passive.ATK) {
             const atkDropdown = document.createElement('select');
+			
+			// Add Level 0 option
+    const level0Option = document.createElement('option');
+    level0Option.value = 0;
+    level0Option.textContent = 'Level 0: 0%';
+    atkDropdown.appendChild(level0Option);
+			
             for (let i = 0; i < maxpasLevel; i++) {
                 const option = document.createElement('option');
                 option.value = unit.Passive.ATK[i];
@@ -90,6 +94,13 @@ function populatePassiveDropdowns(unit, rank) {
         // HP Passive Dropdown
         if (unit.Passive.HP) {
             const hpDropdown = document.createElement('select');
+			
+	// Add Level 0 option
+    const level0Option = document.createElement('option');
+    level0Option.value = 0;
+    level0Option.textContent = 'Level 0: 0%';
+    hpDropdown.appendChild(level0Option);
+	
             for (let i = 0; i < maxpasLevel; i++) {
                 const option = document.createElement('option');
                 option.value = unit.Passive.HP[i];
@@ -105,6 +116,14 @@ function populatePassiveDropdowns(unit, rank) {
         // ATKSPD Passive Dropdown
         if (unit.Passive["ATK Speed"]) {
             const atkspdDropdown = document.createElement('select');
+			
+			
+			// Add Level 0 option
+    const level0Option = document.createElement('option');
+    level0Option.value = 0;
+    level0Option.textContent = 'Level 0: 0%';
+    atkspdDropdown.appendChild(level0Option);
+			
             for (let i = 0; i < maxpasLevel; i++) {
                 const option = document.createElement('option');
                 option.value = unit.Passive["ATK Speed"][i];
@@ -182,7 +201,7 @@ function calculateStats() {
         // Display results
         document.getElementById('result').innerHTML = `
              <img class="sqimg" src="images/units/${unitName}.png" alt=""/> 
-            <div class="statstxt"><p><img class="iconsq" src="images/attack.png" alt=""/> Attack: ${atk.toFixed(0)}</p>
+            <div class="statstxt"><p><img class="iconsq" src="images/attack.png" alt=""/> Attack: ${finalAtk.toFixed(0)}</p>
             <p><img class="iconsq" src="images/health.png" alt=""/> HP: ${finalHp.toFixed(0)}</p>
             <p><img class="iconsq" src="images/attack-speed.png" alt=""/> Attack Speed: ${finalatkspd}</p></div>
         `;
