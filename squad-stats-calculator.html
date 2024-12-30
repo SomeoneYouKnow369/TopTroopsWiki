@@ -28,6 +28,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
 
       <script>
          $(function(){
@@ -56,6 +57,16 @@
     margin-top: 10px;
     width: 144px;
     transition: all .3s;
+}
+  .table-hover tbody tr:hover {
+        background-color: #668a3c; 
+        color: #fff;
+    }
+#unit-stats-table{
+font-family: "Open Sans", sans-serif;
+}
+#unit-stats-table th{
+background: rgb(0, 0, 0, 0.43);
 }
 .sqbtn:hover{
     background: #538e0e;
@@ -296,6 +307,29 @@ button, input, select, textarea {
   </div></div>
 
 </div>   
+
+
+ <div class="sqcalcon" style="display: block; margin-top: 20px;"> 
+   
+
+    <table id="unit-stats-table" class="table table-bordered sortable table-hover">
+        <thead>
+            <tr>
+                <th>Name <span class="glyphicon glyphicon-sort"></span></th>
+                <th>HP <span class="glyphicon glyphicon-sort"></span></th>
+                <th>Attack <span class="glyphicon glyphicon-sort"></span></th>
+                <th>Attack Speed <span class="glyphicon glyphicon-sort"></span></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+
+  
+    
+   
+   
+   </div>
    
 	</div>
                    
@@ -1173,6 +1207,58 @@ const squadData = [
 </script>
 
 <script type="text/javascript" src="js/squad-stats.js"></script>
+
+
+<script>
+function populateStatsTable() {
+    const level = 300;
+    const rank = 15;
+
+    const tableBody = $('#unit-stats-table tbody');
+    tableBody.empty();
+
+    squadData.forEach(unit => {
+        const rankData = rankCoefficients.find(r => r.Rank === rank);
+        if (rankData) {
+            const rarity = unit.Rarity;
+            const rankCoefficient = rankData[rarity];
+            const levelMultiplier = calculateLevelMultiplier(level);
+
+            // Calculate stats
+            const atk = unit["Base ATK"] * rankCoefficient * levelMultiplier;
+            const hp = unit["Base HP"] * rankCoefficient * levelMultiplier;
+            const speed = unit["Attack Speed"];
+			
+		const maxAtkPassive = unit.Passive?.ATK ? Math.max(...unit.Passive.ATK) : 0;
+        const maxHpPassive = unit.Passive?.HP ? Math.max(...unit.Passive.HP) : 0;
+        const atkSpeedPassive = unit.Passive?.["ATK Speed"] ? Math.max(...unit.Passive["ATK Speed"]) : 0;
+
+
+        const finalAtk = atk * (1 + maxAtkPassive / 100);
+        const finalHp = hp * (1 + maxHpPassive / 100);
+        const finalSpeed = speed * (1 - atkSpeedPassive / 100);
+
+            // Append row to table
+            const row = `
+                <tr>
+                    <td>${unit.Name}</td>
+                    <td style='text-align:right'>${finalHp.toFixed(0)}</td>
+                    <td style='text-align:right'>${finalAtk.toFixed(0)}</td>
+                    <td style='text-align:right'>${finalSpeed}</td>
+                </tr>
+            `;
+            tableBody.append(row);
+        }
+    });
+}
+
+// Initialize table and sorting
+$(document).ready(() => {
+    populateStatsTable();
+    $('#unit-stats-table').tablesorter(); // Initialize Bootstrap table sorter
+});
+</script>
+
 <link rel="stylesheet" type="text/css" href="css/purecookie.css"  />
 <script src="css/purecookie.js" ></script>
    </body>
