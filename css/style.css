@@ -729,15 +729,19 @@ width: 100%;
     display: flex;
     width: 100%;
     border: none;
-    border-bottom: 3px solid #FFC107;
-    margin: auto 1% 24px 1%;
+    border-bottom: none;
+    margin: auto 1% 4px 1%;
     padding-bottom: 5px;
     justify-content: space-evenly;
     align-items: center;
     background: none;
     flex-wrap: wrap;
-	text-shadow: 0 2px 3px rgba(0, 0, 0, 0.38);
-	background: rgb(0, 0, 0, 0.22);
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.38);
+    background: rgb(0, 0, 0, 0.22);
+}
+.list:not(.active):hover{
+background: rgb(0, 0, 0, 0.62);
+transform: none;
 }
 .list:not(.active) .tire {
     position: initial;
@@ -746,7 +750,7 @@ width: 100%;
     vertical-align: middle;
 }
 .list:not(.active) .thumb {
-    width: 5%;
+    width: 4%;
     display: inline-block;
 }
 .list:not(.active) .news-txt {
@@ -848,6 +852,10 @@ padding: 0px 5px;
 }
 .list:not(.active) .news-txt {
     width: 27%;
+}
+.list:not(.active) {
+        margin: auto 1% 10px 1%;
+    border-bottom: 2px solid #FFC107;
 }
 .sqitemthumb {
     width: 34%;
